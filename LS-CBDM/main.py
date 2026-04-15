@@ -554,20 +554,12 @@ def main(argv):
         train()
     if FLAGS.eval:
         FLAGS.org_dir = FLAGS.sample_name
-        for i in ['ddpm','ddim','s_pndm']:
-                for s in [5,10,20,50,100]:
-                    FLAGS.sample_type = i
-                    FLAGS.omega = 1.8
-                    cal_shift_time()
-                    cal_x0()
-                    FLAGS.shift_time_step = True
-                    # FLAGS.omega = round(omega,2)
-                    # FLAGS.output_logdir = './cifar10lt_0.01_train.npz'
-                    FLAGS.S =s
-                    FLAGS.num_images = 50000
-                    torch.manual_seed(FLAGS.seed)
-                    eval()
-                    FLAGS.r = 0.0
+        FLAGS.omega = 1.8
+        # FLAGS.omega = round(omega,2)
+        # FLAGS.output_logdir = './cifar10lt_0.01_train.npz'
+        FLAGS.num_images = 50000
+        torch.manual_seed(FLAGS.seed)
+        eval()
         # for i in range(1):
         #     FLAGS.omega = 1.4
         #     # FLAGS.omega = round(omega,2)
