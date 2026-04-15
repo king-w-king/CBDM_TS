@@ -23,13 +23,7 @@ Please find the [features for cifar 100 and cifar 10](https://drive.google.com/d
 ### Train a model
 * Class-balancing model training 
     ```
-    python main.py --train  \
-            --flagfile ./config/cifar100.txt --parallel \
-            --logdir ./logs/cifar100lt_cbdm --total_steps 300001 \
-            --conditional \
-            --data_type cifar100lt --imb_factor 0.01 --img_size 32 \
-            --batch_size 48 --save_step 100000 --sample_step 50000 \
-            --cb --tau 1.0
+    python main.py --train  --flagfile ./config/cifar100.txt --parallel --logdir ./logs/cifar100lt_cbdm --total_steps 300001 --conditional --data_type cifar100lt --imb_factor 0.01 --img_size 32  --batch_size 48 --save_step 100000 --sample_step 50000 --cb --tau 1.0
     ```
 
 
