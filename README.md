@@ -51,4 +51,4 @@ This implementation is based on / inspired by:
 
 - [https://github.com/w86763777/pytorch-ddpm](https://github.com/w86763777/pytorch-ddpm) 
 - [https://github.com/qym7/CBDM-pytorch](https://github.com/qym7/CBDM-pytorch)
-- []
+- [https://github.com/Mingxiao-Li/TS-DPM](https://github.com/Mingxiao-Li/TS-DPM)
