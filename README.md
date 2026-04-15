@@ -26,24 +26,11 @@ Please find the [features for cifar 100 and cifar 10](https://drive.google.com/d
 
 
 ### Evaluate a model
-* Sample images and evaluate for the 4 models above.
-
+* Five-step image sampling is performed using the DDIM sampler, and the generated results are evaluated.
     ```
-    python main.py --flagfile ./logs/cifar100lt_cbdm/flagfile.txt --logdir ./logs/cifar100lt_cbdm --fid_cache ./stats/cifar100.train.npz --ckpt_step 300000 --num_images 50000 --batch_size 64 --notrain --eval --sample_method cfg  --omega 1.6
+    python main.py --flagfile ./logs/cifar100lt_cbdm/flagfile.txt --logdir ./logs/cifar100lt_cbdm --fid_cache ./stats/cifar100.train.npz  --ckpt_step 300000 --num_images 10000 --batch_size 64 --notrain --eval --sample_method cfg  --omega 1.8 --sample_type ddim  --S 5
     ```
 
-
-## References
-
-If you find the code useful for your research, please consider citing
-```bib
-@inproceedings{qin2023class,
-  title={Class-balancing diffusion models},
-  author={Qin, Yiming and Zheng, Huangjie and Yao, Jiangchao and Zhou, Mingyuan and Zhang, Ya},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  year={2023}
-}
-```
 
 ## Acknowledgements
 
