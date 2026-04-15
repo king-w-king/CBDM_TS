@@ -1,4 +1,4 @@
-# CBDM_TS: Mitigating Exposure Bias in Long-tailed Diffusion Models through Improved Time-steps and Mean Estimation
+# LS_CBDM: Mitigating Exposure Bias in Long-tailed Diffusion Models through Improved Time-steps and Mean Estimation
 
 This repo contains the PyTorch implementation for [Class-Balancing Diffusion Models], by Yiming Qin, Huangjie Zheng, Jiangchao Yao, Mingyuan Zhou, and Ya Zhang.
 
