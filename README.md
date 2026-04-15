@@ -26,7 +26,7 @@ Please find the [features for cifar 100 and cifar 10](https://drive.google.com/d
 
 
 ### Evaluate a model
-* Five-step image sampling is performed using the DDIM sampler, and the generated results are evaluated.
+* Five-step image sampling is performed using the DEIS sampler, and the generated results are evaluated.
     ```
     python main.py --flagfile ./logs/cifar100lt_cbdm/flagfile.txt --logdir ./logs/cifar100lt_cbdm --fid_cache ./stats/cifar100.train.npz  --ckpt_step 300000 --num_images 50000 --batch_size 64 --notrain --eval --sample_method cfg  --omega 1.8 --sample_type ddim  --S 5
     ```
