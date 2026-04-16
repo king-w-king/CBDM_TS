@@ -163,43 +163,12 @@ def evaluate(sampler, model, sampled):
                 images.append((batch_images.cpu() + 1) / 2)
 
 
-                # image_count += batch_size
-                # remain_images = (FLAGS.num_images - image_count)/FLAGS.batch_size
-                # remain_time = remain_images*sigle_time
-                # hour = int(remain_time//3600)
-                # mini = int((remain_time%3600)//60)
-                # second = int(remain_time%60)
-                # print(f"已经生成{image_count}张图片,总共需要生成{FLAGS.num_images}张图片,还需{hour}h {mini}min {second}s.")
-                # batch_images = ((batch_images.cpu() + 1) / 2) * 255
-                # batch_images = batch_images.clamp(0, 255)
-                # batch_images = batch_images.to(torch.long)
-                # batch_images = batch_images.to(torch.uint8)
-                # images.append(batch_images)
-
                 if FLAGS.sample_method!='uncond' and batch_labels is not None:
                     labels.append(batch_labels.cpu())
             images = torch.cat(images, dim=0).numpy()
         end_time = time.time()
         elapsed_time = end_time - start_time
-    #     np.save(os.path.join(FLAGS.logdir, '{}_{}_samples_ema_{}.npy'.format(
-    #                                         FLAGS.sample_method, FLAGS.omega,
-    #                                         FLAGS.sample_name)), images)
-    #     if FLAGS.sample_method != 'uncond':
-    #         labels = torch.cat(labels, dim=0).numpy()
-    #         np.save(os.path.join(FLAGS.logdir, '{}_{}_labels_ema_{}.npy'.format(
-    #                                         FLAGS.sample_method, FLAGS.omega,
-    #                                         FLAGS.sample_name)), labels)
-    #     model.train()
-    # else:
-    #     labels = None
-    #     images = np.load(os.path.join(FLAGS.logdir, '{}_{}_samples_ema_{}.npy'.format(
-    #                                         FLAGS.sample_method, FLAGS.omega,
-    #                                         FLAGS.sample_name)))
-    #
-    #     if FLAGS.sample_method != 'uncond':
-    #         labels = np.load(os.path.join(FLAGS.logdir, '{}_{}_labels_ema_{}.npy'.format(
-    #                                             FLAGS.sample_method, FLAGS.omega,
-    #                                             FLAGS.sample_name)))
+
 
     save_image(
         torch.tensor(images[:64]),
@@ -212,14 +181,6 @@ def evaluate(sampler, model, sampled):
         images, labels, FLAGS.fid_cache, num_images=FLAGS.num_images,
         use_torch=FLAGS.fid_use_torch, FLAGS=FLAGS)
 
-    # images = np.transpose(images, (0, 2, 3, 1))
-    # output_npz = np.array(images)
-    # np.savez(FLAGS.output_logdir, output_npz)
-
-    # (IS,IS_std) = (0,0)
-    # FID = 0
-    # prd_score = (0,0)
-    # ipr = (0,0)
 
     return (IS, IS_std), FID, prd_score, ipr, elapsed_time
 
