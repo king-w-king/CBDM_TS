@@ -514,27 +514,8 @@ def main(argv):
         set_seed(42)
         train()
     if FLAGS.eval:
-        FLAGS.org_dir = FLAGS.sample_name
-        FLAGS.omega = 1.8
-        # FLAGS.omega = round(omega,2)
-        # FLAGS.output_logdir = './cifar10lt_0.01_train.npz'
-        FLAGS.num_images = 50000
         torch.manual_seed(FLAGS.seed)
         eval()
-        # for i in range(1):
-        #     FLAGS.omega = 1.4
-        #     # FLAGS.omega = round(omega,2)
-        #     FLAGS.logdir = './logs/cifar10lt_cbdm_0.001_1'
-        #     FLAGS.output_logdir = './cifar10lt_0.001_train.npz'
-        #     FLAGS.ckpt_step = 260000
-        #     FLAGS.S =5
-        #     FLAGS.num_images = 50000
-        #     torch.manual_seed(FLAGS.seed)
-        #     eval()
-
-
-
-
     if not FLAGS.train and not FLAGS.eval:
         print('Add --train and/or --eval to execute corresponding tasks')
 
